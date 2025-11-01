@@ -1,0 +1,54 @@
+# Step 1: Import basic tools
+import random
+import pandas as pd
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import r2_score
+
+# Step 2: Make automatic data for 50 cars
+car_age = list(range(1, 51))                        # Car ages from 1 to 50 years
+mileage = [random.uniform(10, 25) for _ in range(50)]  # Random mileage 10 to 25 km/l
+selling_price = []                                   # Empty list for prices
+
+# Step 3: Create price for each car (simple logic)
+for age, m in zip(car_age, mileage):
+    # Older cars and low mileage → less price, plus small random change
+    price = 12 - (age * 0.15) - (m * 0.05) + random.uniform(-0.5, 0.5)
+    selling_price.append(price)
+
+# Step 4: Put everything in a table
+data = pd.DataFrame({
+    'Car_Age': car_age,
+    'Mileage': mileage,
+    'Selling_Price': selling_price
+})
+
+print("📘 Sample Data (first 5 rows):")
+print(data.head())
+
+# Step 5: Split data for learning and testing
+X = data[['Car_Age', 'Mileage']]    # what the computer will learn from
+y = data['Selling_Price']           # what we want it to predict
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Step 6: Train the model
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+# Step 7: Make predictions
+y_pred = model.predict(X_test)
+
+# Step 8: Check accuracy (how well it learned)
+accuracy = r2_score(y_test, y_pred)
+print(f"\n✅ Model Accuracy: {accuracy*100:.2f}%")
+
+# Step 9: Compare actual and predicted prices (simple way)
+print("\n📊 Actual vs Predicted Prices:")
+for actual, predicted in zip(list(y_test)[:10], list(y_pred)[:10]):   # show first 10 rows only
+    print(f"Actual: ₹{actual:.2f} L  |  Predicted: ₹{predicted:.2f} L")
+
+# Step 10: Predict price for a new car
+new_car = [[4, 22]]  # 4 years old, 22 km/l mileage
+predicted_price = model.predict(new_car)[0]
+print(f"\n🚘 Predicted Price for new car: ₹{predicted_price:.2f} lakhs")
