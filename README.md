@@ -3,6 +3,7 @@
 A manchine learning project of used car price prediction based on car age and mileage.
 
 📘**Overview**
+
 This is a simple Machine Learning project that predicts the selling price of a used car using Linear Regression.  
 It automatically creates a small dataset of 50 cars with details like car age and mileage, then trains a model to understand how these factors affect price.  
 No external file or dataset is required — everything runs inside the program itself.
@@ -22,7 +23,7 @@ No external file or dataset is required — everything runs inside the program i
 - Pandas 📊  
 - scikit-learn 🤖
 
-  🎯**What I Learn**
+🎯**What I Learn**
 - How to automatically generate a dataset  
 - How Linear Regression predicts continuous values  
 - How to measure model accuracy  
