@@ -19,7 +19,8 @@ No external file or dataset is required — everything runs inside the program i
 - Python 🐍  
 - Pandas 📊  
 - scikit-learn 🤖
-- 🎯**What I Learn**
+
+  🎯**What I Learn**
 - How to automatically generate a dataset  
 - How Linear Regression predicts continuous values  
 - How to measure model accuracy  
