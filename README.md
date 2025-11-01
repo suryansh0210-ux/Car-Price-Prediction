@@ -1,4 +1,4 @@
-**Car-Price-Prediction
+**Car-Price-Prediction**
 A manchine learning project of used car price prediction based on car age and mileage.
 📘Overview
 This is a simple Machine Learning project that predicts the selling price of a used car using Linear Regression.  
