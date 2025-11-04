@@ -8,7 +8,7 @@ This is a simple Machine Learning project that predicts the selling price of a u
 It automatically creates a small dataset of 50 cars with details like car age and mileage, then trains a model to understand how these factors affect price.  
 No external file or dataset is required — everything runs inside the program itself.
 
-⚙️ **How It Works**
+⚙️**How It Works**
 1. The program creates  car data automatically.  
 2. Each car has:
    - 🚘 Car Age (in years)
